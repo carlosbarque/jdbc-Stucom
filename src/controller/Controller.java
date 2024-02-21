@@ -46,16 +46,25 @@ public class Controller {
 	 */
 	public void init() {
 		try {
+			
 			// connect to data
 			dao.connect();
 			
-			// if login ok 
+			// connect to data
+			// if login ok
 			if (loginUser()) {
+				
+				
+				// connect to data
 				// check last game
 				startGame();
+				
+			
+				// connect to data
 				// play turn based on cards in hand
 				playTurn();
 				
+				// connect to data
 				
 			} else
 				System.out.println("User or password incorrect.");
@@ -111,8 +120,10 @@ public class Controller {
 
 				default:
 					card = selectCard(position);
+					System.out.println("Carta elegida:");
+					System.out.println(card);
 					correctCard = validateCard(card);
-
+					
 					// if skip or change side, remove it and finish game
 					if (correctCard) {
 						if (card.getNumber().equalsIgnoreCase(Number.SKIP.toString())
@@ -229,7 +240,9 @@ public class Controller {
 	 */
 	private void startGame() throws SQLException {
 		// get last cards of player
+		
 		cards = dao.getCards(player.getId());
+		System.out.println("carlitus");
 		
 		// if no cards, first game, take 3 cards
 		if (cards.size() == 0) drawCards(3);
@@ -264,6 +277,7 @@ public class Controller {
 			}
 					
 			Card c = new Card(id, number , color , player.getId());
+			
 			dao.saveCard(c);
 			cards.add(c);
 		}

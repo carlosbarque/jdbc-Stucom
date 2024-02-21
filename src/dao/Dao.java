@@ -54,7 +54,7 @@ public interface Dao {
 	/**
 	 * @param id card
 	 * @return object card from card table by id_card
-	 * @throws SQLException
+	 * @throws SQLException  
 	 */
 	public Card getCard(int cardId) throws SQLException;
 	
@@ -100,3 +100,4 @@ public interface Dao {
 	public void addGames(int playerId) throws SQLException;
 
 }
+
